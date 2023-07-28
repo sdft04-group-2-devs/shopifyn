@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   resources :products
   resources :users
-  resources :reviews, only: [:create, :show :update]
-  resources :order_items, only: [:create,:show]
+  resources :reviews, only: [:index, :create, :show, :update]
+  resources :order_items, only: [:index, :create,:show]
   resources :payments
   resources :wishlists
   resources :categories

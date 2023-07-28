@@ -1,8 +1,13 @@
 class OrderItemsController < ApplicationController
-  def create
-    @order_item = OrderItem.new(order_item_params)
 
-    if @order_item.save
+  def index
+    order_items = OrderItem.all
+    render json: order_items
+  end
+  def create
+    @order_item = OrderItem.create(order_item_params)
+
+    if @order_item
       render json: @order_item, status: :created
     else
       render json: @order_item.errors, status: :unprocessable_entity
@@ -27,6 +32,6 @@ class OrderItemsController < ApplicationController
   private
 
   def order_item_params
-    params.require(:order_item).permit(:product_id, :quantity)
+    params.permit(:product_id, :user_id, :address, :order_quantity)
   end
 end

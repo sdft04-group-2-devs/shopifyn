@@ -1,8 +1,14 @@
 class ReviewsController < ApplicationController
+
+  def index
+    reviews = Review.all
+    render json: reviews
+  end
+
     def create
-      @review = Review.new(review_params)
+      @review = Review.create(review_params)
   
-      if @review.save
+      if @review
         render json: @review, status: :created
       else
         render json: @review.errors, status: :unprocessable_entity
@@ -17,6 +23,6 @@ class ReviewsController < ApplicationController
     private
   
     def review_params
-      params.require(:review).permit(:product_id, :rating, :comment)
+      params.permit(:product_id, :star_rating, :comment, :user_id)
     end
   end
