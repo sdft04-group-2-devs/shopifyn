@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :order_items
   resources :payments
   resources :wishlists
-  resources :categories
+  resources :categories, only: [:index, :show, :create]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
