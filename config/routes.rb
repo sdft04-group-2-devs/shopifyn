@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :reviews
   resources :order_items
   resources :payments
-  resources :wishlists
+  resources :wishlists, only: [:index, :show, :create]
   resources :categories, only: [:index, :show, :create]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
