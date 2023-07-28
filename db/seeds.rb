@@ -45,3 +45,20 @@
 # )
 # end
 
+# puts 'Starting seeding'
+
+
+# 10.times do
+#     payment = ['Cash on Delivery', 'M-pesa', 'Debit/Credit Card']
+#     payment_status = ['pending','paid']
+#     payment = Payment.create!(
+#         order_item_id: rand(1..5),
+#         amount: rand(500..5000),
+#         payment_method: (payment.sample),
+#         status: (payment_status.sample),
+#         user_id: rand(1..10)
+#     )
+# end
+
+# puts 'Done seeding'
+

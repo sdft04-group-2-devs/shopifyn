@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :reviews
   resources :order_items
-  resources :payments
+  resources :payments, only: [:index, :show, :create, :update]
   resources :wishlists, only: [:index, :show, :create]
   resources :categories, only: [:index, :show, :create]
 
