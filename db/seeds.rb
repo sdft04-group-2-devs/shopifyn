@@ -5,3 +5,119 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Product.create( [
+  {
+    name: "Iphone 14",
+    price: 148000,
+    description: "A powerful smartphone with a 6.1-inch (155 mm) display with Super Retina XDR OLED technology at a resolution of 2532 × 1170 pixels and a pixel density of about 460 PPI with a refresh rate of 60 Hz.",
+    brand: "Apple",
+    stock_quantity: rand(1..10),
+    category_id: rand(1..10),
+    image_url_1: "https://i.pinimg.com/236x/26/be/56/26be56634ad9773c9d8f6315cac2cba7.jpg",
+    image_url_2: "https://i.pinimg.com/236x/bf/ec/f2/bfecf2b0a771b425f056381be43e084c.jpg",
+    image_url_3: "https://i.pinimg.com/236x/f1/4b/76/f14b76e9c2da3e5744d8a3833e31d879.jpg"
+  },
+  {
+    name: "MacBook pro",
+    price: 210000,
+    description: "A sleek macOS laptop with a 13.30-inch display that has a resolution of 2560x1600 pixels.  It is powered by a Core i5 processor and it comes with 12GB of RAM. The Apple MacBook Pro packs 512GB of SSD storage. .",
+    brand: "Apple",
+    stock_quantity: rand(1..30),
+    category_id: rand(1..10),
+    image_url_1: "https://i.pinimg.com/236x/ba/fe/23/bafe23ae31ee08316ef4f5964f40a05d.jpg",
+    image_url_2: "https://i.pinimg.com/236x/12/3e/f6/123ef687e4fa6f6c9fe9c22df36045fc.jpg",
+    image_url_3: "https://i.pinimg.com/736x/b3/31/aa/b331aac223ad539aad9131e15090bd8d.jpg"
+  },
+  {
+    name: "Baets Pro",
+    price: 5000,
+    description: "Even frequency response of studio monitors for ultra-accurate recording, mixing, and playback. Greater earcup foam density and precise fitting shut out external noise for awesome accuracy and clarity. Plug your cable into one earcup and the other port switches to output mode, making it easy to share what you’re listening to.",
+    brand: "Beats",
+    stock_quantity: rand(1..45),
+    category_id: rand(1..10),
+    image_url_1: "https://i.pinimg.com/236x/4e/6b/63/4e6b639e9a0e0708ad257b43bf9dd50c.jpg",
+    image_url_2: "https://i.pinimg.com/236x/84/08/aa/8408aa296d3919f499771393053d0151.jpg",
+    image_url_3: "https://i.pinimg.com/236x/0b/29/8c/0b298c76ba2ec3dfbfbd8130669d6a75.jpg"
+  },
+  {
+    name: "HP EliteBook",
+    price: 48000,
+    description: "HP EliteBook: High-performance, premium business laptop with sleek design, cutting-edge security features, and long-lasting battery life for professionals on-the-go.",
+    brand: "HP",
+    stock_quantity: rand(1..45),
+    category_id: rand(1..10),
+    image_url_1: "https://i.pinimg.com/236x/7d/3b/39/7d3b395b8b2a243a7abca72ccd413ac0.jpg",
+    image_url_2: "https://i.pinimg.com/236x/64/8f/da/648fdad0d68279bbd99362490e6f52df.jpg",
+    image_url_3: "https://i.pinimg.com/236x/b3/00/c3/b300c36fc5cea150268740c895a061b7.jpg"
+  },
+  {
+    name: "AirPods Max",
+    price: 80,
+    description: "Wireless over-ear headphones by Apple with premium sound, active noise cancellation, spatial audio, Siri integration, and luxurious design.",
+    brand: "Apple",
+    stock_quantity: rand(1..45),
+    category_id: rand(1..10),
+    image_url_1: "https://i.pinimg.com/236x/99/d9/10/99d91067cd1e7537f99f7f038c83c725.jpg",
+    image_url_2: "https://i.pinimg.com/236x/fc/bf/8d/fcbf8d9e2679e73731b66ef40b39b216.jpg",
+    image_url_3: "https://i.pinimg.com/236x/06/9a/57/069a57bf897346df925e92cf50bd2c72.jpg"
+  },
+  {
+    name: "AirPods pro 3",
+    price: 80,
+    description: "Wireless earbuds with active noise cancellation, improved sound, water resistance, touch controls, and enhanced comfort for all-day use.",
+    brand: "Apple",
+    stock_quantity: rand(1..65),
+    category_id: rand(1..10),
+    image_url_1: "https://i.pinimg.com/236x/e3/49/76/e34976e9cd96ce7f6b081a432742a6f7.jpg",
+    image_url_2: "https://i.pinimg.com/236x/32/8c/e9/328ce9ba49eb3141992bc0ddffe0fee9.jpg",
+    image_url_3: "https://i.pinimg.com/236x/c9/90/40/c99040c1ce90c6becbce02e92689bbe8.jpg"
+  },
+  {
+    name: "Custom Gaming CPU",
+    price: 80,
+    description: "ESGaming's custom Gaming CPU boasts a powerful Intel Core i9 processor with 8 cores and 16 threads, overclockable up to 5.0GHz. Equipped with 32GB of high-speed DDR4 RAM, an NVIDIA GeForce RTX 3080 GPU with 10GB VRAM, and a lightning-fast 1TB NVMe SSD, ensuring an immersive and smooth gaming experience.",
+    brand: "ESGaming",
+    stock_quantity: rand(1..65),
+    category_id: rand(1..10),
+    image_url_1: "https://i.pinimg.com/236x/df/04/a4/df04a4f01cf282fc8d0a32f73262c1ca.jpg",
+    image_url_2: "https://i.pinimg.com/236x/5d/2c/42/5d2c4291216594ebded53dbdd5d32e8a.jpg",
+    image_url_3: "https://i.pinimg.com/564x/b7/a2/96/b7a296555b2727dd7b34276c4bf9672e.jpg"
+  },
+  {
+    name: "Tecno Camon 20",
+    price: 80,
+    description: "The Camon 20 by Tecno boasts a powerful quad-camera setup, delivering stunning photography capabilities. Its large display offers an immersive viewing experience, and the generous battery ensures long-lasting usage. With impressive performance and ample storage, it provides a feature-rich smartphone experience.",
+    brand: "Tecno",
+    stock_quantity: rand(1..50),
+    category_id: rand(1..10),
+    image_url_1: "https://i.pinimg.com/236x/a8/a9/94/a8a994b78ec091ecc9590043c65d913e.jpg",
+    image_url_2: "https://i.pinimg.com/236x/d9/aa/84/d9aa84f629406a42aeefa36b8c458716.jpg",
+    image_url_3: "https://i.pinimg.com/236x/40/0a/2b/400a2b355ab51588e574feba5681c6aa.jpg"
+  },
+  {
+    name: "Magic Mouse",
+    price: 80,
+    description: "The Apple Magic Mouse is a wireless, multi-touch mouse designed for Mac computers. It features a sleek, seamless design with a touch-sensitive surface, allowing users to perform gestures for easy navigation and scrolling. Its rechargeable battery and Bluetooth connectivity enhance its usability and convenience.",
+    brand: "Apple",
+    stock_quantity: rand(1..65),
+    category_id: rand(1..10),
+    image_url_1: "https://i.pinimg.com/564x/3f/1e/ef/3f1eef8f82d8b3fc6c2e426a3e29f332.jpg",
+    image_url_2: "https://i.pinimg.com/736x/60/96/46/609646da22b13e7577c5321b2a07765d.jpg",
+    image_url_3: "https://i.pinimg.com/236x/c2/ca/6b/c2ca6bf3506dc8201f9adfbccf158e95.jpg"
+  },
+  {
+    name: "Ipad air",
+    price: 80,
+    description: "The iPad Air by Apple boasts a sleek and lightweight design, featuring a stunning 10.9-inch Liquid Retina display with True Tone and P3 wide color support. Powered by the A14 Bionic chip, it offers impressive performance and supports Apple Pencil, Touch ID, and a 12MP rear camera for versatile usability..",
+    brand: "Apple",
+    stock_quantity: rand(1..65),
+    category_id: rand(1..10),
+    image_url_1: "https://i.pinimg.com/236x/83/da/0d/83da0d55a05d3775d2c9b7fe73b7f756.jpg",
+    image_url_2: "https://i.pinimg.com/236x/ed/e4/cb/ede4cb6bcd5351c69ff75f2c86d33eec.jpg",
+    image_url_3: "https://i.pinimg.com/236x/6a/2f/02/6a2f02d1babbba181f62afe69639e940.jpg"
+  }
+
+  # Add more products here...
+]
+ )
