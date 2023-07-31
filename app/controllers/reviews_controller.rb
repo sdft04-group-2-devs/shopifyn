@@ -6,18 +6,18 @@ class ReviewsController < ApplicationController
   end
 
     def create
-      @review = Review.create(review_params)
+      review = Review.create(review_params)
   
-      if @review
-        render json: @review, status: :created
+      if review
+        render json: review, status: :created
       else
-        render json: @review.errors, status: :unprocessable_entity
+        render json: review.errors, status: :unprocessable_entity
       end
     end
   
     def show
-      @review = Review.find(params[:id])
-      render json: @review
+      review = Review.find(params[:id])
+      render json: review
     end
   
     private
