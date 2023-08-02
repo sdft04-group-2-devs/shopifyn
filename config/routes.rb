@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   resources :products
-  resources :users
+  resources :users, only: [:create, :index, :show]
+  post '/login', to: 'auth#create'
+  get '/profile', to: 'users#profile'
   resources :reviews
   resources :order_items
   resources :payments
