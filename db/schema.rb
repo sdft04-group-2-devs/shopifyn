@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_27_224139) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_31_124636) do
   create_table "categories", force: :cascade do |t|
     t.string "category_name"
     t.datetime "created_at", null: false
@@ -68,9 +68,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_224139) do
     t.string "role"
     t.string "profile_url"
     t.string "password_digest"
-    t.string "confirm_password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "confirm_password"
   end
 
   create_table "wishlists", force: :cascade do |t|

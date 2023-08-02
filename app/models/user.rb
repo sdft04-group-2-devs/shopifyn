@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    has_secure_password
+  
     has_many :order_items
     has_many :payments
     has_many :reviews
