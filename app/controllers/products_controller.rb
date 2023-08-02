@@ -1,4 +1,11 @@
 class ProductsController < ApplicationController
+    before_action :set_product, only: [:show]
+
+    private
+    def set_product
+        @product = Product.find(params[:id])
+    end
+
     def index
       products = Product.all
       render json: products, status: :ok
@@ -14,4 +21,3 @@ class ProductsController < ApplicationController
       end
     end
   end
-  
