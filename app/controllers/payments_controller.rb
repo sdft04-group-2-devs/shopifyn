@@ -1,4 +1,5 @@
 class PaymentsController < ApplicationController
+    before_action :authorized
     def index
         payments = Payment.all
         render json: payments
