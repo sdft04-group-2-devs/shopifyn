@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   resources :users, only: [:create, :index, :show]
+  post '/passwordreset', to: 'password_reset#reset'
   post '/login', to: 'auth#create'
   get '/profile', to: 'users#profile'
   resources :reviews, only: [:index, :create, :show, :update]
