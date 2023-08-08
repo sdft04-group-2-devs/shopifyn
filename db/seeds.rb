@@ -37,51 +37,51 @@ puts "started seed generation"
 #   end
   
   # Seed data for order_items table
-  10.times do
+  # 10.times do
 
-    addresses = [
-      "123 Main Street",
-      "456 Elm Avenue",
-      "789 Oak Road",
-      "321 Pine Lane",
-      "987 Maple Drive",
-      "654 Cedar Court",
-      "987 Birch Avenue",
-      "123 Cherry Lane",
-      "456 Walnut Road",
-      "321 Willow Drive"
-    ]
+  #   addresses = [
+  #     "123 Main Street",
+  #     "456 Elm Avenue",
+  #     "789 Oak Road",
+  #     "321 Pine Lane",
+  #     "987 Maple Drive",
+  #     "654 Cedar Court",
+  #     "987 Birch Avenue",
+  #     "123 Cherry Lane",
+  #     "456 Walnut Road",
+  #     "321 Willow Drive"
+  #   ]
     
-    orderItem = OrderItem.create!(
-      product_id: rand(1..10),
-      user_id: rand(1..10),
-      address: addresses.sample,
-      order_quantity: rand(1..5)
-    )
-  end
+  #   orderItem = OrderItem.create!(
+  #     product_id: rand(1..10),
+  #     user_id: rand(1..10),
+  #     address: addresses.sample,
+  #     order_quantity: rand(1..5)
+  #   )
+  # end
   
   # Seed data for reviews table
-#   10.times do
-#     comments = [
-#       "Great product!",
-#       "Excellent service!",
-#       "Highly recommended.",
-#       "Not what I expected.",
-#       "Fast delivery.",
-#       "Poor quality.",
-#       "Average product.",
-#       "Would buy again.",
-#       "Avoid this product.",
-#       "Could be better."
-#     ]
+  # 10.times do
+  #   comments = [
+  #     "Great product!",
+  #     "Excellent service!",
+  #     "Highly recommended.",
+  #     "Not what I expected.",
+  #     "Fast delivery.",
+  #     "Poor quality.",
+  #     "Average product.",
+  #     "Would buy again.",
+  #     "Avoid this product.",
+  #     "Could be better."
+  #   ]
     
-#     review = Review.create!(
-#       star_rating: rand(1..10),
-#       comment: comments.sample,
-#       user_id: rand(1..10),
-#       product_id: rand(1..10)
-#     )
-#   end
+  #   review = Review.create!(
+  #     star_rating: rand(1..10),
+  #     comment: comments.sample,
+  #     user_id: 1,
+  #     product_id: rand(1..10)
+  #   )
+  # end
 
   puts "Done seeding"
   
@@ -152,59 +152,59 @@ puts "started seed generation"
 # puts "done deleting"
 
 
-Category.create([{
-    category_name: 'Desktops'
-},
-{
-    category_name: 'Monitors'
-},
-{
-    category_name: 'Laptops'
-},
-{
-    category_name: 'All-in-ones'
-},
-{
-    category_name: 'Tv'
-},
-{
-    category_name: 'Phones'
-},
-{
-    category_name: 'Tablets'
-},
-{
-    category_name: 'Headsets'
-},
-{
-    category_name: 'Data Storage'
-},
-{
-    category_name: 'Accessories'
-}
-])
+# Category.create([{
+#     category_name: 'Desktops'
+# },
+# {
+#     category_name: 'Monitors'
+# },
+# {
+#     category_name: 'Laptops'
+# },
+# {
+#     category_name: 'All-in-ones'
+# },
+# {
+#     category_name: 'Tv'
+# },
+# {
+#     category_name: 'Phones'
+# },
+# {
+#     category_name: 'Tablets'
+# },
+# {
+#     category_name: 'Headsets'
+# },
+# {
+#     category_name: 'Data Storage'
+# },
+# {
+#     category_name: 'Accessories'
+# }
+# ])
 
-10.times do
-    wishlists = Wishlist.create!(
-    user_id: rand(1..10),
-    product_id: rand(1..10)
-)
-end
+# 10.times do
+#     wishlists = Wishlist.create!(
+#     user_id: rand(1..3),
+#     product_id: rand(1..10)
+# )
+# end
 
 # puts 'Starting seeding'
 
 
-10.times do
-    payment = ['Cash on Delivery', 'M-pesa', 'Debit/Credit Card']
-    payment_status = ['pending','paid']
-    payment = Payment.create!(
-        order_item_id: rand(1..5),
-        amount: rand(500..5000),
-        payment_method: (payment.sample),
-        status: (payment_status.sample),
-        user_id: rand(1..10)
-    )
-end
+# 10.times do
+#     payment = ['Cash on Delivery', 'M-pesa', 'Debit/Credit Card']
+#     payment_status = ['pending','paid']
+#     payment = Payment.create!(
+#         order_item_id: rand(1..5),
+#         amount: rand(500..5000),
+#         payment_method: (payment.sample),
+#         status: (payment_status.sample),
+#         user_id: rand(1..10)
+#     )
+# end
 
 # puts 'Done seeding'
 
