@@ -1,27 +1,31 @@
-class AuthController < ApplicationController
-    skip_before_action :authorized, only: [:create]
-    rescue_from ActiveRecord::RecordNotFound, with: :handle_record_not_found
+# class AuthController < ApplicationController
+#     # skip_before_action :authorized, only: [:create]
+#     before_action :authorize_request, except: :login
+#     rescue_from ActiveRecord::RecordNotFound, with: :handle_record_not_found
     
 
-  def create
-    user = User.find_by(email: params[:email])
-    #User#authenticate comes from BCrypt
-    if user && user.authenticate(params[:password])
-      # encode token comes from ApplicationController
-      token = encode_token(user_id: user.id)
-      render json: { user: UserSerializer.new(user), jwt: token }, status: :accepted
-    else
-      render json: { message: 'Invalid email or password' }, status: :unauthorized
-    end
-  end
+#     # POST /login
+#   def login
+#     @user = User.find_by(email: params[:email])
+#     #User#authenticate comes from BCrypt
+#     if @user&.authenticate(params[:password])
+#       # encode token comes from ApplicationController
+#       token = JsonWebToken.encode(user_id: @user.id)
+#       time =Time.now + 24.hours.to_i
+#       render json: { token: token, exp: time.strftime("%m-%d-%Y %H:%M"),
+#         username: @user  }, status: :accepted
+#     else
+#       render json: { message: 'Invalid email or password' }, status: :unauthorized
+#     end
+#   end
 
-  private
+#   private
 
-  # def user_login_params
-  #   # params { user: {username: 'Chandler Bing', password: 'hi' } }
-  #   params.permit( :email, :password_digest)
-  # end
+#   def user_login_params
+#     # params { user: {username: 'Chandler Bing', password: 'hi' } }
+#     params.permit( :email, :password)
+#   end
   
 
 
-end
+# end
