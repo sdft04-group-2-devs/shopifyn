@@ -2,7 +2,7 @@
 
 # Method to generate random addresses
 
-puts "started seed generation"
+# puts "started seed generation"
 # def random_address
 #     addresses = [
 #       "123 Main Street",
@@ -75,15 +75,15 @@ puts "started seed generation"
   #     "Could be better."
   #   ]
     
-  #   review = Review.create!(
-  #     star_rating: rand(1..10),
-  #     comment: comments.sample,
-  #     user_id: 1,
-  #     product_id: rand(1..10)
-  #   )
-  # end
+#     review = Review.create!(
+#       star_rating: rand(1..10),
+#       comment: comments.sample,
+#       user_id: rand(1..3),
+#       product_id: rand(1..10)
+#     )
+#   end
 
-  puts "Done seeding"
+#   puts "Done seeding"
   
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -191,7 +191,7 @@ puts "started seed generation"
 # )
 # end
 
-# puts 'Starting seeding'
+# # puts 'Starting seeding'
 
 
 # 10.times do
@@ -323,3 +323,4 @@ Product.create( [
   # Add more products here...
 ]
  )
+

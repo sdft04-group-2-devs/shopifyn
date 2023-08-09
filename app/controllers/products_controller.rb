@@ -1,5 +1,8 @@
 class ProductsController < ApplicationController
-    before_action :set_product, only: [:show]
+    # skip_before_action :authorized, only: [:index]
+    # before_action :set_product, only: [:show]
+    before_action :authorize_request, except: [:index, :show]
+    
 
   
 
