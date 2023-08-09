@@ -1,10 +1,13 @@
 class ProductsController < ApplicationController
+<<<<<<< HEAD
     before_action :set_product, only: [:show, :index]
+=======
+    # skip_before_action :authorized, only: [:index]
+    # before_action :set_product, only: [:show]
+    before_action :authorize_request, except: [:index, :show]
+    
+>>>>>>> main
 
-    private
-    def set_product
-        @product = Product.find(params[:id])
-    end
 
     def index
       products = Product.all
@@ -19,5 +22,10 @@ class ProductsController < ApplicationController
       else
         render json: { error: 'Product not found' }, status: :not_found
       end
+    end
+
+    private
+    def set_product
+        @product = Product.find(params[:id])
     end
   end
