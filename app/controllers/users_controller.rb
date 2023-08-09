@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorize_request, except: [:create, :index]
+  before_action :authorize_request, except: [:create, :index, :show]
   before_action :find_user, except: %i[create index]
   
   def index
@@ -39,10 +39,14 @@ class UsersController < ApplicationController
     head :no_content
   end
 
+  def current
+    render json: @current_user, status: :ok
+  end
+
     private
 
     def find_user
-      @user = User.find_by!(id: params[:id])
+      @current_user = User.find_by!(id: params[:id])
       rescue ActiveRecord::RecordNotFound
         render json: { errors: 'User not found' }, status: :not_found
     end
