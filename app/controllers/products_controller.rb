@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
     before_action :authorize_request, except: [:index, :show]
     
 
+  
 
     def index
       products = Product.all
