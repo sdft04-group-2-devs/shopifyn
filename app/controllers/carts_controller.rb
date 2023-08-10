@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :authorize_request, except: :index
+  # before_action :authorize_request, except: :index
 
   # GET /carts
   def index

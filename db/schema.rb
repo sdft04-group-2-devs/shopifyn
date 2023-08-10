@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_09_055346) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_09_201605) do
   create_table "access_tokens", force: :cascade do |t|
     t.string "token"
     t.datetime "created_at", null: false
@@ -103,7 +103,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_09_055346) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "confirm_password"
   end
 
   create_table "wishlists", force: :cascade do |t|
