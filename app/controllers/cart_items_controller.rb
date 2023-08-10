@@ -1,9 +1,10 @@
 class CartItemsController < ApplicationController
-  before_action :authorize_request
+  # before_action :authorize_request
 
   # POST /cart_items
   def create
-    cart = @current_user.cart
+    current_user = User.find_by(id: session[:user_id])
+    cart = current_user.cart
     product = Product.find(params[:product_id])
 
     cart_item = cart.cart_items.build(product: product, quantity: params[:quantity])
