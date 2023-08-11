@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :authorize_request, except: [:create, :index]
-  before_action :find_user, except: %i[create index]
+  skip_before_action :authorize, only: [:create, :index, :show, :get_cart]
+  rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
+  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
   
   def index
     @users = User.all
@@ -9,47 +10,72 @@ class UsersController < ApplicationController
 
      # POST /users
   def create
-    user = User.new(user_params)
-    if user.save
+    user = User.create!(user_params)
       cart = Cart.create(user: user)
-      token = encode_token(user_id: user.id)
-      render json: { token: token }, status: :created
-    else
-      render json: { error: user.errors.full_messages.join(', ') }, status: :unprocessable_entity
-    end
+      session[:user_id] = user.id
+      render json: user, include: :carts, status: :created
   end
 
-    # GET /users/:id
-  def show
-    render json: @current_user, status: :ok
-  end
+    # GET /logged_in
+    def logged_in 
+      # user =User.find_by(id: session[:user_id])
+      # if user 
+      #     render json: user, status: :ok
+      # else 
+      #     render json: {error: "Not authorized"}, status: :unauthorized
+      # end
+      render json: {user: authorize}
+    end
+
+    def show
+      user = User.find(params[:id])
+      render json: user, status: :ok
+    end
 
      # PUT /users/:id
   def update
-    if @current_user.update(user_params)
-      render json: @current_user, status: :ok
-    else
-      render json: { error: @current_user.errors.full_messages.join(', ') }, status: :unprocessable_entity
-    end
+    user = User.find(params[:id])
+    user.update!(user_params)
+    render json: user, status: :ok
   end
 
      # DELETE /users/:id
   def destroy
-    @current_user.destroy
+    user = User.find(params[:id])
+    user.destroy
     head :no_content
+  end
+
+  def current
+    render json: @current_user, status: :ok
+  end
+
+   # GET /users/:id/cart
+  def get_cart
+    user = User.find(params[:id])
+    cart = user.cart
+    render json: cart, include: :cart_items, status: :ok
   end
 
     private
 
     def find_user
-      @user = User.find_by!(id: params[:id])
+      @current_user = User.find_by!(id: params[:id])
       rescue ActiveRecord::RecordNotFound
         render json: { errors: 'User not found' }, status: :not_found
     end
 
 
     def user_params
-      params.permit(:username, :email, :phone_no, :role, :profile_url, :password, :confirm_password)
+      params.permit(:username, :email, :phone_no, :role, :profile_url, :password, :password_confirmation)
+    end
+
+    def render_not_found_response
+      render json: {errors: ["User not found"]}, status: :not_found
+    end
+
+    def render_unprocessable_entity(exception)
+      render json: {errors: exception.record.errors.full_messages}, status: :unprocessable_entity
     end
 
 

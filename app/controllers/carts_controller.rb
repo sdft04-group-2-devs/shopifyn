@@ -1,5 +1,11 @@
-class CartController < ApplicationController
-  before_action :authorize_request
+class CartsController < ApplicationController
+  # before_action :authorize_request, except: :index
+
+  # GET /carts
+  def index
+    carts = Cart.all
+    render json: carts, include: :cart_items, status: :ok
+  end
    # GET /cart
    def show
     render json: @current_user.cart, include: :cart_items, status: :ok
@@ -25,8 +31,8 @@ class CartController < ApplicationController
 
   private
 
-  def cart_params
-    # Define permitted cart parameters if needed
-    params.require(:cart).permit(:some_attribute)
-  end
+  # def cart_params
+  #   # Define permitted cart parameters if needed
+  #   params.require(:cart).permit(:)
+  # end
 end
