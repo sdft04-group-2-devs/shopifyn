@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.0].define(version: 2023_08_04_024834) do
-=======
-ActiveRecord::Schema[7.0].define(version: 2023_08_08_095750) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_11_201200) do
   create_table "cart_items", force: :cascade do |t|
     t.integer "cart_id", null: false
     t.integer "product_id", null: false
@@ -31,7 +28,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_095750) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
->>>>>>> main
   create_table "categories", force: :cascade do |t|
     t.string "category_name"
     t.datetime "created_at", null: false
@@ -64,7 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_095750) do
     t.text "description"
     t.text "brand"
     t.integer "stock_quantity"
-    t.integer "category_id"
+    t.string "category"
     t.string "image_url_1"
     t.string "image_url_2"
     t.string "image_url_3"
