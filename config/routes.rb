@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :payments, only: [:index, :show, :create, :update]
   resources :wishlists, only: [:index, :show, :create]
   resources :categories, only: [:index, :show, :create]
-  resources :products, only: [:index, :show]
+  resources :products
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
