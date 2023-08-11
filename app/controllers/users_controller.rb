@@ -77,6 +77,17 @@ class UsersController < ApplicationController
     def render_unprocessable_entity(exception)
       render json: {errors: exception.record.errors.full_messages}, status: :unprocessable_entity
     end
-
+    #updating the email
+    def update_email
+      user = User.find(params[:id])
+      user.update(email: params[:email])
+      render json: user
+    end
+     #updating the username
+     def update_username
+      user = User.find(params[:id])
+      user.update(username: params[:username])
+      render json: user
+    end
 
 end

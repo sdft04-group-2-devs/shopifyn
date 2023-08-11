@@ -22,6 +22,11 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show, :create]
   resources :products, only: [:index, :show]
 
+
+  #Other routes
+  patch '/users/:id/email', to: 'users#update_email'
+  # Other routes...
+  patch '/users/:id/username', to: 'users#update_username'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
