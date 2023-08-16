@@ -3,17 +3,21 @@ class CartItemsController < ApplicationController
 
   # POST /cart_items
   def create
-    current_user = User.find_by(id: session[:user_id])
-    cart = current_user.cart
-    product = Product.find(params[:product_id])
-
-    cart_item = cart.cart_items.build(product: product, quantity: params[:quantity])
-
-    if cart_item.save
+    cart_item = CartItem.create(cart_item_params)
+    if cart_item
       render json: cart_item, status: :created
     else
       render json: { error: cart_item.errors.full_messages.join(', ') }, status: :unprocessable_entity
     end
+  end
+
+  # GET /cart_items
+  def index
+    # user_id = params[:user_id]
+    # cart_items = CartItem.where(user_id: user_id)
+    cart_items = CartItem.all
+  
+    render json: cart_items, status: :ok
   end
 
   # PATCH /cart_items/:id
@@ -37,6 +41,6 @@ class CartItemsController < ApplicationController
   private
 
   def cart_item_params
-    params.require(:cart_item).permit(:quantity) # Add other permitted attributes if needed
+    params.require(:cart_item).permit(:user_id, :product_id, :quantity)
   end
 end

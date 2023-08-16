@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
+  resources :shopping_baskets
   resources :mpesas
-  resources :carts, only: [:index, :show, :update, :destroy]
-  resources :cart_items, only: [:create, :update, :destroy]
-  resources :users, only: [:create, :index, :show] do
-    member do
-      get :get_cart
-    end
-  end
+  resources :users, only: [:create, :index, :show]
   post 'signup', to: 'users#create'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#logout'
@@ -15,12 +10,13 @@ Rails.application.routes.draw do
   get '/current', to: 'users#current'
   post 'stkpush', to: 'mpesas#stkpush'
   post 'stkquery', to: 'mpesas#stkquery'
+  
   resources :reviews, only: [:index, :create, :show, :update]
   resources :order_items, only: [:index, :create,:show]
   resources :payments, only: [:index, :show, :create, :update]
   resources :wishlists, only: [:index, :show, :create]
   resources :categories, only: [:index, :show, :create]
-  resources :products, only: [:index, :show]
+  resources :products
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

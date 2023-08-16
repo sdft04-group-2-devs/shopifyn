@@ -8,7 +8,8 @@ class CartsController < ApplicationController
   end
    # GET /cart
    def show
-    render json: @current_user.cart, include: :cart_items, status: :ok
+    current_user = User.find_by(id: params[:user_id])
+    render json: current_user.cart, include: :cart_items, status: :ok
   end
 
   # PATCH /cart

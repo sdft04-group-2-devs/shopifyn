@@ -18,18 +18,12 @@ class UsersController < ApplicationController
 
     # GET /logged_in
     def logged_in 
-      # user =User.find_by(id: session[:user_id])
-      # if user 
-      #     render json: user, status: :ok
-      # else 
-      #     render json: {error: "Not authorized"}, status: :unauthorized
-      # end
       render json: {user: authorize}
     end
 
     def show
       user = User.find(params[:id])
-      render json: user, status: :ok
+      render json: user, include: :carts, status: :ok
     end
 
      # PUT /users/:id
@@ -53,8 +47,8 @@ class UsersController < ApplicationController
    # GET /users/:id/cart
   def get_cart
     user = User.find(params[:id])
-    cart = user.cart
-    render json: cart, include: :cart_items, status: :ok
+    cart_items = user.cart_items
+    render json: cart_items, status: :ok
   end
 
     private
