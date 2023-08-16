@@ -1,6 +1,6 @@
 class MpesasController < ApplicationController
-    # before_action :authorize_request, except: [:stkpush, :stkquery]
-    skip_before_action :verify_authenticity_token, only: [:stkpush, :stkquery]
+    before_action :authorize
+    # skip_before_action :verify_authenticity_token, only: [:stkpush, :stkquery]
     protect_from_forgery with: :exception
 
     require 'rest-client'
