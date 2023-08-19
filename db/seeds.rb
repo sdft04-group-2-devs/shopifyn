@@ -208,6 +208,8 @@
 
 # puts 'Done seeding'
 
+Product.destroy_all
+
 Product.create( [
   {
     name: "Iphone 14",
